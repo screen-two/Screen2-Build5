@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Multiple Twitter Feeds With Search</title>
+</head>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/twitterfeed.js"></script>
+<link href="css/twitter-styles.css" rel="stylesheet" type="text/css" />
+
+<body>
+	
+    <section id="content-wrapper">
+
+        <div id="twitter-feed-1" class="tweets"></div>
+        <div id="twitter-feed-2" class="tweets"></div>
+        
+        <div class="tweets">
+            <input id="s" results=5 type="search" name="s" value="Type keyword and press enter to search" />
+            <div id="twitter-feed-3">
+                
+            </div>
+        </div>
+    <div class="clear"></div>
+    </section>
+    
+    
+    <script type="text/javascript" >
+		$(document).ready(function () {
+			$('#twitter-feed-1').twitterFeed({
+				screenname: 'Digitalinc',
+				twitterprofile:'thisdigitalinc'
+				
+			});
+			
+			$('#twitter-feed-2').twitterFeed({
+				screenname: 'Digitalinc',
+				twitterprofile:'thisdigitalinc'
+				
+			}); 
+			
+			$('#s').keypress(function (event) {
+			  if (event.which == 13) {
+				event.preventDefault();
+				$('#twitter-feed-3').twitterFeed({
+					screenname: 'Digitalinc',
+					twitterprofile:'thisdigitalinc',
+					type: 'search',
+					q: $('#s').val()
+					
+				});
+				return false;
+			  }
+			});
+		});
+    
+    </script>
+
+</body>
+</html>
