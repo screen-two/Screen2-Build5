@@ -2,70 +2,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Tweet Graph</title>
+<title>Screen&sup2; Build 5 </title>
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="http://d3js.org/d3.v3.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <link href="css/styles.css" rel="stylesheet" type="text/css" />
 <link href="css/graph-styles.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-<header>
-  <div id="header-left">
-    <div class="menu-icon">
-      <button id="showLeft"></button>
-    </div>
-    <!-- END menu-icon--> 
-    
-  </div>
-  <!-- END header-left -->
-  <div id="header-right">
-    <div class="search">
-      <form class="search" action="update-data.php" method="get">
-        <input id="q" results=5 type="search" name="q" value="Search..." />
-        <input id="update" type="button" value="Go" />
-      </form>
-    </div>
-    <!-- END search -->
-    
-    <div class="clear"></div>
-  </div>
-  
-  <!-- END header-right --> 
-  
-</header>
-<!-- END header --> 
 
 
-<div id="menu" class="main-navigation cbp-spmenu-push">
-  <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1"> <a href="#" id="refresh">Update Chart</a>
-    <div class="clear"></div>
-    <!--Snippet for accordion taken from  http://jqueryui.com/accordion/ -->
-    <div id="accordion">
-      <h3>Saved Searches</h3>
-      <div class="saved"> </div>
-      <h3>Trends</h3>
-      <div class="top-ten">
-        <ul>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- END nav cbp-spmenu-s1 --> 
-</div>
-<!-- END main-navigation -->
 
-<div class="content">
-  <div id="chart_container"> 
-    <script>
+
+
+
+<script>
 	//JSON Parser 
 	//developerdrive.com
     function QueryStringToJSON() {            
 		var pairs = location.search.slice(1).split('&');
-		
 		var result = {};
+	
 		pairs.forEach(function(pair) {
 			pair = pair.split('=');
 			result[pair[0]] = decodeURIComponent(pair[1] || '');
@@ -74,13 +30,21 @@
 		return JSON.parse(JSON.stringify(result));
 	}
 	
+	
 	var query_string = QueryStringToJSON();
-            
+    
+		        
     $(document).ready(function () {
+		
 		//Code to get saved searches from database 
 		$.get('get-saved-searches.php', function(data){
 			$('div.saved').append(data);
-			var keywords = query_string.keywords.split(',');
+			if (typeof query_string.keywords === 'undefined') { 
+                     return;
+              } 
+              var keywords = query_string.keywords.split(',');
+			
+	
 			$('div.saved input').each(function(){
 				if($.inArray($(this).val(), keywords) > -1) {
 					$(this).attr('checked', 'checked');
@@ -118,12 +82,12 @@
 		var svg = d3.select("div.content").append("svg")
 			.attr("width", width + margin.left + margin.right)
 			.attr("height", height + margin.top + margin.bottom)
-		  .append("g")
+		  	.append("g")
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 			
 		function updateChart(event){
 			event.preventDefault();
-			d3.tsv("chart-data.php?keywords=" + $('#s').val(), function(error, data) {
+			d3.tsv("./chart-data.php?keywords=" + $('#s').val(), function(error, data) {
 				data.forEach(function(d) {
 					d.date = parseDate(d.date);
 					d.count = +d.count;
@@ -190,7 +154,12 @@
 			document.location = "index.html?keywords=" + keywords + '&hours=15000';
 			
 			return false;
+			
+			
+			
 		});
+		
+		
 
 		 <!--Snippet for accordion taken from  http://jqueryui.com/accordion/#no-auto-height -->
 		$( "#accordion" ).accordion({
@@ -199,7 +168,8 @@
 			active: false
 		});
 	
-		 
+		
+		
 		
 		//END Saved Searches
 		
@@ -225,9 +195,60 @@
 		});
 		//END Top Ten Trends
     });
-    </script> 
+    </script>
+
+</head>
+
+<body>
+<header>
+  <div id="header-left">
+    <div class="menu-icon">
+      <button id="showLeft"></button>
+    </div>
+    <!-- END menu-icon--> 
+    
   </div>
-  <!-- END chart-container --> 
+  <!-- END header-left -->
+  <div id="header-right">
+    <div class="search">
+      <form class="search" action="update-data.php" method="get">
+        <input id="q" results=5 type="search" name="q" value="Search..." />
+        <input id="update" type="button" value="Go" />
+      </form>
+    </div>
+    <!-- END search -->
+    
+    <div class="clear"></div>
+  </div>
+  
+  <!-- END header-right --> 
+  
+</header>
+<!-- END header -->
+
+<div id="menu" class="main-navigation cbp-spmenu-push">
+  <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1"> <a href="#" id="refresh">Update Chart</a>
+    <div class="clear"></div>
+    <!--Snippet for accordion taken from  http://jqueryui.com/accordion/ -->
+    <div id="accordion">
+      <h3>Saved Searches</h3>
+      <div class="saved"> </div>
+      <h3>Trends</h3>
+      <div class="top-ten">
+        <ul>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- END nav cbp-spmenu-s1 --> 
+</div>
+<!-- END main-navigation --> 
+
+
+<div class="content">
+    <div class="chart_container">
+    </div>
+    <!-- END chart-container -->
 </div>
 <!-- END content --> 
 
