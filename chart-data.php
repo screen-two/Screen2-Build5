@@ -42,6 +42,7 @@ $query = mysql_query($sql);
 //create array of arrays for result sets and data points
 $results = array();
 $positions = array();
+$colors = array( '#1d9abd', '#0d4757', '#77a9b7', '#265a68'  );
 $pos = 0;
 
 //read results from sql query
@@ -62,7 +63,9 @@ while ($row = mysql_fetch_assoc($query)) {
 	if(array_key_exists($pos, $results)){
 		$dataset = $results[$pos];
 	} else {
-		$dataset = array( name => $term, data => array() );
+		$color = $colors[count($colors)-1];
+		unset($colors[count($colors)-1]);
+		$dataset = array( name => $term, color => $color, renderer => 'lineplot', data => array() );
 		$results[$pos] = $dataset;
 	}
 	
@@ -72,7 +75,7 @@ while ($row = mysql_fetch_assoc($query)) {
 	$count = intval($row['count']);
 	
 	//store datapoint values in data array
-	$entry = array( 'x' => $epoch, 'y' => $count, 'r' => 10 );
+	$entry = array( 'x' => $epoch, 'y' => $count, 'r' => 10);
 	$data = $dataset['data'];
 	array_push($data, $entry);
 	

@@ -126,7 +126,7 @@ foreach ($counts as $date => $count)
 		$query = mysql_query(sprintf("UPDATE saved_search_history SET count = count + %d WHERE saved_search_history_id = '%d'", $count, $history_id));
 	}
 }
-header('Location: index.html');
+header('Location: index.php?keywords=' . $q . '&hours=15000');
 exit;
 ?>
 
