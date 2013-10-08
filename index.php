@@ -379,7 +379,7 @@
     $(document).ready(function () {
 		
 		//Code to get saved searches from database 
-		$.get('get-saved-searches.php', function(data){
+		$.get('http://digitalinc.ie/screen2-build5/get-saved-searches.php', function(data){
 			$('div.saved').append(data);
 			if (typeof query_string.keywords === 'undefined') { 
                      return;
@@ -404,7 +404,7 @@
 			stroke: true,
 			preserve: true,
 			interpolation: 'linear',
-			dataURL: 'chart-data.php?keywords=' + query_string.keywords + '&hours=15000',
+			dataURL: 'http://digitalinc.ie/screen2-build5/chart-data.php?keywords=' + query_string.keywords + '&hours=15000',
 			/*onData: function(d) { 
 				return d;
 			},*/
@@ -482,7 +482,7 @@
 		//Code to get the top ten trends
 		
 		// Parse out the JSON object 
-		$.get('./trend.php', function(data){
+		$.get('http://digitalinc.ie/screen2-build5/trend.php', function(data){
 			var ul = $('div.top-ten ul');
 			data = JSON.parse(data);
 			 $(data).each(function(index, trend) {
