@@ -75,7 +75,7 @@ while ($row = mysql_fetch_assoc($query)) {
 	$count = intval($row['count']);
 	
 	//store datapoint values in data array
-	$entry = array( 'x' => $epoch, 'y' => $count, 'r' => 10);
+	$entry = array( 'x' => $epoch, 'y' => $count, 'r' => 6);
 	$data = $dataset['data'];
 	array_push($data, $entry);
 	

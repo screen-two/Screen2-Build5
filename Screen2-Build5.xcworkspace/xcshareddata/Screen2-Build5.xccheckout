@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>18AE4197-0214-4B87-9BDA-B64F968031BF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Screen2-Build5</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>044E1B48-C533-4360-B00B-DDE8D931F2FD</key>
+		<string>https://github.com/screen-two/Screen2-Build5.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Screen2-Build5.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>044E1B48-C533-4360-B00B-DDE8D931F2FD</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/screen-two/Screen2-Build5.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>044E1B48-C533-4360-B00B-DDE8D931F2FD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>044E1B48-C533-4360-B00B-DDE8D931F2FD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Screen2-Build5</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -10,7 +10,8 @@ $connection = new tmhOAuth(array(
 
 
 // Get trends
-$connection->request('GET',$connection->url('1.1/trends/place.json?'), 
+$connection->request('GET',$connection->url('1.1/trends/place.json?'),
+//WoeID for Ireland https://dev.twitter.com/discussions/6942 
 array( 'id' => '23424803'));
 // Get the HTTP response code for the API request
 $response_code = $connection->response['code'];

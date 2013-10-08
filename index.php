@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <link href="css/styles.css" rel="stylesheet" type="text/css" />
     <link href="css/rickshaw.css" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
     <style>
 		.chart-container {
 			width: 700px;
@@ -519,19 +520,11 @@
         
       	<div id="header-right">
         
-            <div class="search">
-                <form class="search" action="update-data.php" method="get">
-                    <input id="q" results=5 type="search" name="q" value="Search..." />
-                    <input id="update" type="button" value="Go" />
-                </form>
-            </div>
-    		<!-- END search -->
-    
+            
     		<div class="clear"></div>
     
         </div>      
         <!-- END header-right --> 
-      
     </header>
 <!-- END header -->
 
@@ -567,6 +560,14 @@
     if(!empty($_SESSION['username'])){  ?>
     
     <div class="content">
+        <div class="search">
+            <form class="search" action="update-data.php" method="get">
+                <input id="q" results=5 type="search" name="q" value="Search #, Keyword, Topic " />
+                <input id="update" type="button" value="Go" />
+            </form>
+        </div>
+        <!-- END search -->
+    
 		<div class="chart-container">
             <div id="chart"></div>
             <div id="timeline"></div>
@@ -575,27 +576,8 @@
         </div>
     </div>
     <!-- END content -->
-
-    <?php 
-    } else {
-     ?>
-    <div class="login-wrapper">
-        <h3>Connect with your twitter account to get started</h3>
-        <div class="twitter-login">
-        <div class="twitter-login-icon">
-            <img src="./images/twitter-icon.png" alt="twitter-bird" />
-        </div>
-        <form action="twitter_login.php" method="get">
-              <input type="submit" class="twitter-submit" value="connect with twitter" >
-        </form>
-        </div>
-        <!-- END login-with-twitter --> 
-    </div>
-    <!-- END login-wrapper -->
-
-    <div class="clear"></div>
-    <?php } ?>
-
+	
+    
     <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie --> 
     <script src="js/classie.js"></script> 
     <script>
@@ -609,5 +591,29 @@
       };
               
     </script>
+    
+    
+    <?php 
+    } else {
+     ?>
+    <div class="login-wrapper">
+    	<img src="./images/twitter-icon.png" alt="twitter-bird" />
+        <h3>Sign in to your account</h3>
+        <div class="twitter-login">
+        <div class="twitter-login-icon">
+            
+        </div>
+        <form action="twitter_login.php" method="get">
+              <input type="submit" class="twitter-submit" value="Sign In" >
+        </form>
+        </div>
+        <!-- END login-with-twitter --> 
+    </div>
+    <!-- END login-wrapper -->
+
+    <div class="clear"></div>
+    <?php } ?>
+
+    
 </body>
 </html>
