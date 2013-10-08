@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Screen2-Build5/Application.xib">
+   </FileRef>
+   <FileRef
       location = "group:app_tokens.php">
    </FileRef>
    <FileRef

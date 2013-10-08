@@ -213,7 +213,7 @@
 			
 			date = year + "-" + month + "-" + day;// + " " + hours + ":00:00";
 			
-			$.get('./search.php?q=' + point.series.name + '&count=10&until=' + date, function(data){
+			$.get('http://digitalinc.ie/screen2-build5/search.php?q=' + point.series.name + '&count=10&until=' + date, function(data){
 				data = JSON.parse(data);
 				xLabel.innerHTML = data;
 			});
@@ -561,7 +561,7 @@
     
     <div class="content">
         <div class="search">
-            <form class="search" action="update-data.php" method="get">
+            <form class="search" action="http://digitalinc.ie/screen2-build5/update-data.php" method="get">
                 <input id="q" results=5 type="search" name="q" value="Search #, Keyword, Topic " />
                 <input id="update" type="button" value="Go" />
             </form>
@@ -603,7 +603,7 @@
         <div class="twitter-login-icon">
             
         </div>
-        <form action="twitter_login.php" method="get">
+        <form action="http://digitalinc.ie/screen2-build5/twitter_login.php" method="get">
               <input type="submit" class="twitter-submit" value="Sign In" >
         </form>
         </div>
