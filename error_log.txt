@@ -1,0 +1,1 @@
+[12-Aug-2013 23:33:12 Europe/Berlin] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /Applications/MAMP/htdocs/Screentwo/friendships.php on line 19
